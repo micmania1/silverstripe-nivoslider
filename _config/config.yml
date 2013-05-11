@@ -1,0 +1,13 @@
+---
+Only:
+  classexists: 'NivoSlider'
+  classexists: 'HomePage'
+---
+HomePage:
+  extensions:
+    - 'NivoSiteTreeExtension'
+
+NivoSlider:
+  extensions:
+    - 'PageNivoExtension'
+---

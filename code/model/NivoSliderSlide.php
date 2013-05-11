@@ -18,7 +18,7 @@ class NivoSliderSlide extends DataObject {
 	);
 	
 	public static $summary_fields = array(
-		"SlideImage.CMSThumbnail" => "SlideImage",
+		"SlideImage.CMSThumbnail" => "Slide Image",
 		"Title" => "Title",
 	);
 	

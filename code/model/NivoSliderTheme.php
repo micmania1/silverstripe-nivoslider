@@ -13,14 +13,14 @@ class NivoSliderTheme extends Object {
 	 *
 	 * @var string
 	**/
-	public $title = "No Theme";
+	protected $title = "No Theme";
 	
 	/**
 	 * This is the class that will be applied to the wrapper of the Nivo slider.
 	 *
 	 * @var string CSS Class
 	**/
-	public $cssClass = "no-theme";
+	protected $cssClass = "no-theme";
 	
 	
 	/**

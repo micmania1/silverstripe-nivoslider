@@ -5,5 +5,6 @@
     		<% include NivoSliderSlide %>
     	<% end_loop %>
     </div>
+	<% include NivoSlideCaptions %>
 </div>
 <% end_if %>

@@ -11,6 +11,23 @@ class NivoSlider extends DataObject {
 	public static $db = array(
 		"Title" => "Varchar(255)",
 		"Theme" => "Varchar(255)",
+		// Nive Slide Options
+		"Effect" => "Enum('random, sliceDown, sliceUpm sliceUpLeft, sliceDown, sliceDownLeft, fold, face, slideInRight, slideInLeft, boxRandom, boxRain, boxRainReverse, boxRainGrow, boxRainGrowReverse', 'random')",
+		"AnimationSpeed" => "Int",
+		"PauseTime" => "Int",
+		"StartSlide" => "Int",
+		"RandomStart" => "Boolean",
+		"Slices" => "Int", 
+		"BoxCols" => "Int",
+		"BoxRows" => "int", 
+		"DirectionNav" => "Boolean",
+		"ControlNav" => "Boolean",
+		"ControlNavThumbs" => "Boolean",
+		"PauseOnHover" => "Boolean",
+		"ManualAdvance" => "Boolean",
+		"PrevText" => "Varchar(255)",
+		"NextText" => "Varchar(255)",
+		
 	);
 	
 	public static $has_many = array(
@@ -27,6 +44,22 @@ class NivoSlider extends DataObject {
 	
 	public static $defaults = array(
 		"Theme" => "DefaultNivoSliderTheme",
+		"Effect" => "random",
+		"AnimationSpeed" => 500,
+		"PauseTime" => 3000,
+		"startSlide" => 0,
+		"RandomStart" => false,
+		"Slices" => 15,
+		"BoxCols" => 8,
+		"BoxRows" => 4,
+		"DirectionNav" => true,
+		"ControlNav" => true,
+		"ControlNavThumbs" => false,
+		"PauseOnHover" => true,
+		"ManualAdvance" => false,
+		"PrevText" => "Prev",
+		"NextText" => "Next",
+		
 	);
 	
 	/** 
@@ -56,20 +89,52 @@ class NivoSlider extends DataObject {
 	 * @return string
 	**/
 	public static function get_module_folder() {
-		$dir = explode("/", trim(Director::makeRelative(__FILE__), "/"));
+		$dir = explode(DIRECTORY_SEPARATOR, trim(Director::makeRelative(__FILE__), DIRECTORY_SEPARATOR));
 		return $dir[0];
 	}
 	
 	public function getCMSFields() {
-		$fields = parent::getCMSFields();
-		$fields->push(TextField::create("Title", "Title"));
-		$fields->push(DropdownField::create("Theme", "Theme", self::get_all_themes()));
-		$fields->push(GridField::create(
-			"Slides",
-			"Nivo Slide",
-			$this->Slides(),
-			GridFieldConfig_RecordEditor::create()
-		));
+		$fields = new FieldList();
+		$fields->push(
+			new TabSet(
+				"Root",
+				new Tab(
+					"Main",
+					TextField::create("Title", "Title"),
+					GridField::create(
+						"Slides",
+						"Nivo Slide",
+						$this->Slides(),
+						GridFieldConfig_RecordEditor::create()
+					)
+				),
+				new Tab(
+					"Advanced",
+					DropdownField::create("Theme", "Theme", self::get_all_themes()),
+					DropdownField::create("Effect", "Effect", $this->dbObject("Effect")->enumValues()),
+					NumericField::create("AnimationSpeed", "Animation Speed")->setDescription("Animation speed in milliseconds."),
+					NumericField::create("PauseTime", "Pause Time")->setDescription("Pause time on each frame in milliseconds."),
+					TextField::create("PrevText", "Previous Text"),
+					TextField::create("NextText", "Next Text"),
+					NumericField::create("Slices", "Slices")->setDescription("Number of slices for slice animation effects."),
+					NumericField::create("BoxCols", "Box Columns")->setDescription("Number of box columns for box animation effects."),
+					NumericField::create("BoxRows", "Box Rows")->setDescription("Number of box rows for box animation effects."),
+					NumericField::create("StartSlide", "Start Slide")->setDescription("Slide to start on (0 being the first)."),
+					HeaderField::create("ControlHeading", "Control Options", 4),
+					CompositeField::create(
+						array(
+							CheckboxField::create("DirectionNav", "Display Direction Navigation?"),
+							CheckboxField::create("ControlNav", "Display Control Navigation?"),
+							CheckboxField::create("ControlNavThumbs", "Use thumbnails for control nav?"),
+							CheckboxField::create("PauseOnHover", "Stop the animation whilst hovering?"),
+							CheckboxField::create("ManualAdvance", "Force manual transition?"),
+							CheckboxField::create("RandomStart", "Random Start?")
+						)
+					)
+				)
+			)
+		);
+		$fields->extend("updateCMSFields", $fields);
 		return $fields;
 	}
 	
@@ -118,7 +183,24 @@ class NivoSlider extends DataObject {
 		Requirements::customScript
 		(
 			'$(window).ready(function() {
-				$("#' . $this->ClassName . '-' . $this->ID . '").nivoSlider();
+				$("#' . $this->ClassName . '-' . $this->ID . '").nivoSlider({
+					effect: "' . $this->Effect . '",
+					animSpeed: ' . $this->AnimationSpeed . ',
+					pauseTime: ' . $this->PauseTime . ',
+					startSlide: ' . $this->StartSlide . ',
+					slices: ' . $this->Slices . ',
+					boxCols: ' . $this->BoxCols . ',
+					boxRwos: ' . $this->BoxRows . ',
+					directionNav: ' . $this->DirectionNav . ',
+					controlNav: ' . $this->ControlNav . ',
+					controlNavThumbs: ' . $this->ControlNavThumbs . ',
+					pauseOnHover: ' . $this->PauseOnHover . ',
+					manualAdvance: ' . $this->ManualAdvance . ',
+					prevText: "' . $this->PrevText . '",
+					nextText: "' . $this->NextText . '",
+					randomStart: ' . $this->RandomStart . ',
+					
+				});
 			});'
 		);
 		

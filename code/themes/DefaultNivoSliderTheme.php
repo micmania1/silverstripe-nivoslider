@@ -13,14 +13,14 @@ class DefaultNivoSliderTheme extends NivoSliderTheme {
 	 *
 	 * @var string
 	**/
-	public $title = "Default Theme";
+	protected $title = "Default Theme";
 	
 	/**
 	 * Default CSS Class
 	 *
 	 * @var string CSS Class
 	**/
-	public $cssClass = "theme-default";
+	protected $cssClass = "theme-default";
 	
 	
 	public function beforeRender() {
