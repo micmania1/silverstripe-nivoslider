@@ -1,0 +1,16 @@
+{
+    "name": "micmania1/silverstripe-nivoslider",
+    "description": "Nivo Slider module for Silverstripe",
+	"type": "silverstripe-module",
+    "require": {
+        "silverstripe/framework": "3.0.*",
+        "silverstripe/cms": "3.0.*"
+    },
+    "authors": [
+        {
+            "name": "micmania1",
+            "email": "micmania@hotmail.co.uk"
+        }
+    ],
+    "minimum-stability": "stable"
+}
