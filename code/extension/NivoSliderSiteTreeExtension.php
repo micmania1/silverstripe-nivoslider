@@ -6,7 +6,7 @@
  * @package silverstripe
  * @subpackage nivoslider
 **/
-class NivoSiteTreeExtension extends DataExtension {
+class NivoSliderSiteTreeExtension extends DataExtension {
 	
 	static $has_one = array(
 		"NivoSlider" => "NivoSlider"
