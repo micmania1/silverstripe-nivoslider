@@ -198,8 +198,7 @@ class NivoSlider extends DataObject {
 					manualAdvance: ' . $this->ManualAdvance . ',
 					prevText: "' . $this->PrevText . '",
 					nextText: "' . $this->NextText . '",
-					randomStart: ' . $this->RandomStart . ',
-					
+					randomStart: ' . $this->RandomStart . '
 				});
 			});'
 		);
