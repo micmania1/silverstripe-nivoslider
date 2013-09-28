@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Admin interface to manage sliders
+ *
+ * @package silverstripe
+ * @subpackage nivoslider
+**/
 class NivoSlideAdmin extends ModelAdmin {
 
 	public static $url_segment = "nivo-slides";
@@ -11,4 +17,5 @@ class NivoSlideAdmin extends ModelAdmin {
 	public static $managed_models = array(
 		"NivoSlider",
 	);
+
 }

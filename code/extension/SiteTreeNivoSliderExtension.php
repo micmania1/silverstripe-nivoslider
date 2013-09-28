@@ -11,4 +11,5 @@ class SiteTreeNivoSliderExtension extends DataExtension {
 	static $has_one = array(
 		"Page" => "SiteTree"
 	);
+
 }

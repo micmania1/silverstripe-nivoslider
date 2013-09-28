@@ -13,6 +13,8 @@ class NivoSliderSiteTreeExtension extends DataExtension {
 	);
 	
 	public function updateCMSFields(FieldList $fields) {
-		$fields->insertBefore(DropdownField::create("NivoSliderID", "Nivo Slider", NivoSlider::get()->map()), "Content");
+		$fields->insertBefore(DropdownField::create("NivoSliderID", "Nivo Slider", NivoSlider::get()->map()), 
+			"Content");
 	}
+
 }

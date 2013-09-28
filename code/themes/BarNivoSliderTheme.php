@@ -13,6 +13,8 @@ class BarNivoSliderTheme extends NivoSliderTheme {
 	protected $cssClass = "theme-bar";
 	
 	public function beforeRender() {
+		parent::beforeRender();
 		Requirements::css(NivoSlider::get_module_folder() . '/themes/bar/bar.css');
 	}
+
 }

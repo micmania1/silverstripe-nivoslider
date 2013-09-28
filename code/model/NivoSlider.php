@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Nivo Slider which which is the holder for the slide.
+ * Nivo Slider which is the holder for the slide.
  *
  * @package silverstripe
- * @subpackagae niveslider
+ * @subpackage nivoslider
 **/
 class NivoSlider extends DataObject {
 	
@@ -83,6 +83,7 @@ class NivoSlider extends DataObject {
 	}
 	
 	
+
 	/**
 	 * Returns the nivo slider module folder
 	 *
@@ -93,6 +94,8 @@ class NivoSlider extends DataObject {
 		return $dir[0];
 	}
 	
+
+
 	public function getCMSFields() {
 		$fields = new FieldList();
 		$fields->push(
@@ -112,14 +115,20 @@ class NivoSlider extends DataObject {
 					"Advanced",
 					DropdownField::create("Theme", "Theme", self::get_all_themes()),
 					DropdownField::create("Effect", "Effect", $this->dbObject("Effect")->enumValues()),
-					NumericField::create("AnimationSpeed", "Animation Speed")->setDescription("Animation speed in milliseconds."),
-					NumericField::create("PauseTime", "Pause Time")->setDescription("Pause time on each frame in milliseconds."),
+					NumericField::create("AnimationSpeed", "Animation Speed")
+						->setDescription("Animation speed in milliseconds."),
+					NumericField::create("PauseTime", "Pause Time")
+						->setDescription("Pause time on each frame in milliseconds."),
 					TextField::create("PrevText", "Previous Text"),
 					TextField::create("NextText", "Next Text"),
-					NumericField::create("Slices", "Slices")->setDescription("Number of slices for slice animation effects."),
-					NumericField::create("BoxCols", "Box Columns")->setDescription("Number of box columns for box animation effects."),
-					NumericField::create("BoxRows", "Box Rows")->setDescription("Number of box rows for box animation effects."),
-					NumericField::create("StartSlide", "Start Slide")->setDescription("Slide to start on (0 being the first)."),
+					NumericField::create("Slices", "Slices")
+						->setDescription("Number of slices for slice animation effects."),
+					NumericField::create("BoxCols", "Box Columns")
+						->setDescription("Number of box columns for box animation effects."),
+					NumericField::create("BoxRows", "Box Rows")
+						->setDescription("Number of box rows for box animation effects."),
+					NumericField::create("StartSlide", "Start Slide")
+						->setDescription("Slide to start on (0 being the first)."),
 					HeaderField::create("ControlHeading", "Control Options", 4),
 					CompositeField::create(
 						array(
@@ -138,6 +147,8 @@ class NivoSlider extends DataObject {
 		return $fields;
 	}
 	
+
+
 	public function validate() {
 		$validation = parent::validate();
 		if(!$this->validTheme($this->Theme)) {
@@ -146,6 +157,8 @@ class NivoSlider extends DataObject {
 		return $validation;
 	}
 	
+
+
 	/** 
 	 * Check that a theme is valid
 	 *
@@ -161,6 +174,7 @@ class NivoSlider extends DataObject {
 	}
 	
 	
+
 	/**
 	 * Render the Nivo Slider
 	 *
@@ -212,4 +226,5 @@ class NivoSlider extends DataObject {
 			"ThemeCSSClass" => $theme->getCssClass()
 		))->renderWith($templates);
 	}
+
 }

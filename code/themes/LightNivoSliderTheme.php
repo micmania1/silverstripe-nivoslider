@@ -13,6 +13,8 @@ class LightNivoSliderTheme extends NivoSliderTheme {
 	protected $cssClass = "theme-light";
 	
 	public function beforeRender() {
+		parent::beforeRender();
 		Requirements::css(NivoSlider::get_module_folder() . '/themes/light/light.css');
 	}
+
 }

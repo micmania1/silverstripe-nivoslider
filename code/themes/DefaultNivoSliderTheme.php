@@ -24,6 +24,7 @@ class DefaultNivoSliderTheme extends NivoSliderTheme {
 	
 	
 	public function beforeRender() {
+		parent::beforeRender();
 		Requirements::css(NivoSlider::get_module_folder() . "/themes/default/default.css");
 	}
 	

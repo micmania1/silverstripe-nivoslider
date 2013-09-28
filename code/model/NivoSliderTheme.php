@@ -31,6 +31,7 @@ class NivoSliderTheme extends Object {
 	}
 	
 	
+	
 	/**
 	 * Set the theme title.
 	 *
@@ -41,6 +42,7 @@ class NivoSliderTheme extends Object {
 	}
 	
 	
+
 	/**
 	 * Return the theme title.
 	 *
@@ -51,6 +53,7 @@ class NivoSliderTheme extends Object {
 	}
 	
 	
+
 	/**
 	 * Set the theme css class
 	 *
@@ -60,6 +63,7 @@ class NivoSliderTheme extends Object {
 		$this->cssClass = (string) $class;
 	}
 	
+
 	
 	/**
 	 * Return the theme css class
@@ -69,4 +73,5 @@ class NivoSliderTheme extends Object {
 	public function getCssClass() {
 		return (string) $this->cssClass;
 	}
+
 }
