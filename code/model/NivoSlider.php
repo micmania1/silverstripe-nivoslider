@@ -192,7 +192,7 @@ class NivoSlider extends DataObject {
 		
 		// Require nivo slider assets
 		Requirements::css(NivoSlider::get_module_folder() . '/css/nivo-slider.css');
-		Requirements::javascript(NivoSlider::get_module_folder() . '/javascript/jquery-1.9.0.min.js');
+		Requirements::javascript(NivoSlider::get_module_folder() . '/javascript/jquery-1.11.0.min.js');
 		Requirements::javascript(NivoSlider::get_module_folder() . '/javascript/jquery.nivo.slider.pack.js');
 		Requirements::customScript
 		(
