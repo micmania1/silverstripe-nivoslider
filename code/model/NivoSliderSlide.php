@@ -7,22 +7,22 @@
  * @subpackage nivoslider
 **/
 class NivoSliderSlide extends DataObject {
-	public static $db = array(
+	private static $db = array(
 		"Title" => "Varchar(255)",
 		"Caption" => "HTMLText",
 	);
 	
-	public static $has_one = array(
+	private static $has_one = array(
 		"NivoSlider" => "NivoSlider",
 		"SlideImage" => "Image",
 	);
 	
-	public static $summary_fields = array(
+	private static $summary_fields = array(
 		"SlideImage.CMSThumbnail" => "Slide Image",
 		"Title" => "Title",
 	);
 	
-	public static $searchable_fields = array(
+	private static $searchable_fields = array(
 		"Title",
 		"Caption",
 		"SlideImage",
