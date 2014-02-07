@@ -3,8 +3,8 @@
     "description": "Nivo Slider module for Silverstripe",
 	"type": "silverstripe-module",
     "require": {
-        "silverstripe/framework": "3.0.*",
-        "silverstripe/cms": "3.0.*"
+        "silverstripe/framework": "3.1.*",
+        "silverstripe/cms": "3.1.*"
     },
     "authors": [
         {
