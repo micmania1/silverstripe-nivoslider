@@ -8,7 +8,7 @@
 **/
 class SiteTreeNivoSliderExtension extends DataExtension {
 	
-	static $has_one = array(
+	private static $has_one = array(
 		"Page" => "SiteTree"
 	);
 

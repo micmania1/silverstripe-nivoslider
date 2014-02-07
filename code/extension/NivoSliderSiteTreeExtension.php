@@ -8,7 +8,7 @@
 **/
 class NivoSliderSiteTreeExtension extends DataExtension {
 	
-	static $has_one = array(
+	private static $has_one = array(
 		"NivoSlider" => "NivoSlider"
 	);
 	

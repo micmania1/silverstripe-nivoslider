@@ -8,7 +8,7 @@
 **/
 class NivoSlider extends DataObject {
 	
-	public static $db = array(
+	private static $db = array(
 		"Title" => "Varchar(255)",
 		"Theme" => "Varchar(255)",
 		// Nive Slide Options
@@ -30,19 +30,19 @@ class NivoSlider extends DataObject {
 		
 	);
 	
-	public static $has_many = array(
+	private static $has_many = array(
 		"Slides" => "NivoSliderSlide",
 	);
 	
-	public static $searchable_fields = array(
+	private static $searchable_fields = array(
 		"Title",
 	);
 	
-	public static $summary_fields = array(
+	private static $summary_fields = array(
 		"Title",
 	);
 	
-	public static $defaults = array(
+	private static $defaults = array(
 		"Theme" => "DefaultNivoSliderTheme",
 		"Effect" => "random",
 		"AnimationSpeed" => 500,
@@ -192,7 +192,7 @@ class NivoSlider extends DataObject {
 		
 		// Require nivo slider assets
 		Requirements::css(NivoSlider::get_module_folder() . '/css/nivo-slider.css');
-		Requirements::javascript(NivoSlider::get_module_folder() . '/javascript/jquery-1.9.0.min.js');
+		Requirements::javascript(NivoSlider::get_module_folder() . '/javascript/jquery-1.11.0.min.js');
 		Requirements::javascript(NivoSlider::get_module_folder() . '/javascript/jquery.nivo.slider.pack.js');
 		Requirements::customScript
 		(
