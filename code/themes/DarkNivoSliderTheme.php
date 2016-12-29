@@ -6,15 +6,16 @@
  * @package silverstripe
  * @subpackage nivoslider
 **/
-class DarkNivoSliderTheme extends NivoSliderTheme {
+class DarkNivoSliderTheme extends NivoSliderTheme
+{
 
-	protected $title = "Dark Theme";
-	
-	protected $cssClass = "theme-dark";
-	
-	public function beforeRender() {
-		parent::beforeRender();
-		Requirements::css(NivoSlider::get_module_folder() . '/themes/dark/dark.css');
-	}
-
+    protected $title = "Dark Theme";
+    
+    protected $cssClass = "theme-dark";
+    
+    public function beforeRender()
+    {
+        parent::beforeRender();
+        Requirements::css(NivoSlider::get_module_folder() . '/themes/dark/dark.css');
+    }
 }

@@ -6,10 +6,10 @@
  * @package silverstripe
  * @subpackage nivoslider
 **/
-class SiteTreeNivoSliderExtension extends DataExtension {
-	
-	static $has_one = array(
-		"Page" => "SiteTree"
-	);
-
+class SiteTreeNivoSliderExtension extends DataExtension
+{
+    
+    public static $has_one = array(
+        "Page" => "SiteTree"
+    );
 }

@@ -6,15 +6,16 @@
  * @package silverstripe
  * @subpackage nivoslider
 **/
-class NivoSliderSiteTreeExtension extends DataExtension {
-	
-	static $has_one = array(
-		"NivoSlider" => "NivoSlider"
-	);
-	
-	public function updateCMSFields(FieldList $fields) {
-		$fields->insertBefore(DropdownField::create("NivoSliderID", "Nivo Slider", NivoSlider::get()->map()), 
-			"Content");
-	}
-
+class NivoSliderSiteTreeExtension extends DataExtension
+{
+    
+    public static $has_one = array(
+        "NivoSlider" => "NivoSlider"
+    );
+    
+    public function updateCMSFields(FieldList $fields)
+    {
+        $fields->insertBefore(DropdownField::create("NivoSliderID", "Nivo Slider", NivoSlider::get()->map()),
+            "Content");
+    }
 }
